@@ -1,0 +1,232 @@
+/* Reset some default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex; /* Flexbox to position sidebar and main content side by side */
+  min-height: 100vh; /* Full height of the viewport */
+  background-color:  #ced4d8; /* Background color for the body */
+}
+
+/* Header Container */
+header {
+  width: 100%;
+  height: 55px; /* Adjusted height */
+  background-color: #8ca4b6; /* Background color for the header */
+  padding: 3px 30px; /* Adjusted padding for better spacing */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left Section: Logo, Dashboard, and System Name */
+.left-section {
+  display: flex;
+  align-items: center;
+  padding-left: 10px; /* Optional padding to the left */
+}
+
+/* Adjusting logo size and margin */
+.logo {
+  width: 55px; /* Increase the size of the logo */
+  height: auto;
+  margin-right: 10px; /* Adjust margin between logo and text */
+}
+
+/* Text section */
+.text-section {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjusts spacing between Dashboard and System name */
+}
+
+/* Dashboard title styling */
+.header-title {
+  color: #ffffff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 23px; /* Adjust font size */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Divider styling */
+.divider {
+  color: #06355b;
+  font-size: 30px; /* Adjust size for the divider */
+  font-weight: bold;
+  margin: 0 10px; /* Add space around the divider */
+}
+
+/* System name styling */
+.shechaniah-academic-management-system {
+  color: #ffffff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px; /* Adjust font size */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Right Section: User Info */
+.user-info {
+  background-color: #ced4d8; /* Background color for the rectangle */
+  padding: 10px 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Keep the box small and wrapped around the content */
+  margin-top: 3px; /* Adjust margin for positioning */
+  margin-bottom: 3px;
+}
+
+.joeme-ochia, .admin {
+  display: block;
+  text-align: center; /* Center-align the text */
+  color: #6d0c11; /* Text color */
+  font-family: 'Josefin Sans', sans-serif; /* Font family */
+}
+
+.joeme-ochia {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.admin {
+  font-size: 8px;
+  color: #48717e; /* Lighter color for 'Admin' */
+  margin-top: 3px; /* Space between Joeme Ochia and Admin */
+}
+
+/* Sidebar Styling */
+/* Sidebar Styling */
+.sidebar {
+  position: fixed; /* Change from sticky to fixed */
+  top: 55px; /* Position it below the header */
+  left: -200px; /* Initially, the sidebar is hidden off-screen */
+  width: 200px; /* Set the width of the sidebar */
+  background-color: #5b7f99; /* Background color for sidebar */
+  padding: 20px; /* Padding inside the sidebar */
+  height: calc(100vh - 55px); /* Full height minus the header height */
+  z-index: 100; /* To ensure it stays above other content */
+  transition: left 0.5s ease-in-out; /* Smooth transition effect */
+}
+
+/* When the mouse pointer is within 100 pixels of the left edge, show the sidebar */
+@media (pointer: fine) and (max-width: 100px) {
+  .sidebar {
+    left: 0; /* Slide the sidebar into view */
+  }
+}
+.sidebar ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0; /* Space between list items */
+  position: relative; /* Allow positioning for divider */
+}
+
+.sidebar li:not(:last-child)::after { /* Add divider for all but last item */
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px; /* Divider height */
+  background-color: #8bbcc5; /* Divider color */
+  position: relative;
+  bottom: 5; /* Position it at the bottom of the list item */
+  left: 0; /* Align it to the left */
+}
+
+.sidebar a {
+  text-decoration: none; /* Remove underline from links */
+  color: #eff2f5; /* Link color */
+  font-size: 18px; /* Change font size for links */
+  padding: 10px; /* Additional padding inside the links */
+  display: block; /* Make the link fill the entire clickable area */
+}
+
+.sidebar a:hover {
+  color: #9e0d00; /* Color on hover */
+}
+/* Style the .show class to show the sidebar */
+.sidebar.show {
+  left: 0; /* Slide the sidebar into view */
+}
+
+/* Style the .adjust-width class to adjust the main content's width */
+.main-content.adjust-width {
+  margin-left: 200px; /* Make space for the sidebar */
+}
+/* Main Content */
+.main-content {
+  flex-grow: 1; /* Takes the remaining space */
+  margin-top: 55px; /* Offset the height of the fixed header */
+  padding: 20px;
+  background-color: #ced4d8;
+  margin-left: 0; /* Initially, the main content takes up the full width */
+  transition: margin-left 0.5s ease-in-out; /* Smooth transition effect */
+}
+
+/* When the sidebar is visible, adjust the main content's width */
+@media (pointer: fine) and (max-width: 100px) {
+  .main-content {
+    margin-left: 200px; /* Make space for the sidebar */
+  }
+}
+
+/* Right Block */
+.right-block {
+  width: 280px;
+  height: 700px;
+  background-color: white;
+  position: absolute;
+  top: 150px; /* Increased distance from header */
+  right: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for Squares inside the Block */
+.square {
+  width: 240px;
+  height: 200px;
+  background-color: #98b9db; /* Blue color for the squares */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 20px; /* Space between the two squares */
+}
+
+.first-square {
+  display: flex;
+  flex-direction: column; /* Stack the text and input vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+}
+
+.square-title {
+  font-family: 'Nunito Sans', sans-serif; /* Apply Nunito Sans font */
+  font-size: 16px;
+  color: #06355b;
+  text-align: center;
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+.student-input {
+  width: 80px; /* Width of the input field */
+  padding: 5px;
+  font-family: 'Nunito Sans', sans-serif; /* Apply Nunito Sans font to input */
+  font-size: 14px;
+  border: 1px solid #ccc; /* Border around the input */
+  border-radius: 5px; /* Rounded corners for input */
+  text-align: center; /* Center the text inside the input */
+}
